@@ -6,7 +6,7 @@ export function SkillsSection() {
     {
       icon: Code,
       title: "Programming Languages",
-      description: "Python, Java, JavaScript, C++",
+      description: "Python, Java, JavaScript/TypeScript, C, C++",
       level: 85,
     },
     {

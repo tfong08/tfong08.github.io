@@ -5,19 +5,17 @@ import { ExternalLink, Lock } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
-      title: "Course Management System",
+      title: "Job Offer Tracker",
       description:
-        "A web application for managing course schedules and assignments built during my CS coursework. Features user authentication, CRUD operations, and responsive design.",
-      image: "/modern-ecommerce-interface.png",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
+        "An Android application designed for tracking, storing, and comparing job offers with comprehensive functionality. The app features persistent storage for maintaining offer data, customizable comparison tools to evaluate different opportunities, and an intelligent job grading algorithm that helps assess offers based on multiple criteria.",
+      technologies: ["Android", "Java", "SQLite", "XML"],
       isPrivate: true,
     },
     {
-      title: "Engineering Calculator App",
+      title: "Distributed File System",
       description:
-        "A specialized calculator for engineering calculations combining my mechanical engineering background with software development skills. Includes unit conversions and complex formulas.",
-      image: "/task-management-dashboard.png",
-      technologies: ["Python", "Tkinter", "NumPy", "SciPy"],
+        "A robust distributed file system developed in C++ that utilizes gRPC for efficient client-server communication. The system supports multiple concurrent clients with client-side caching mechanisms to improve performance. Implementation includes both synchronous and asynchronous threading to handle real-time file system events and server updates, ensuring data consistency across all connected clients.",
+      technologies: ["C++", "gRPC", "Threading", "Distributed Systems"],
       isPrivate: true,
     },
   ]
@@ -36,19 +34,10 @@ export function ProjectsSection() {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {projects.map((project, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
 
-                <CardContent className="p-5">
-                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-
-                  <p className="text-muted-foreground mb-4 text-sm text-pretty">{project.description}</p>
+                  <p className="text-muted-foreground mb-4 text-pretty">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (

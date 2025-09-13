@@ -11,13 +11,29 @@ export function HeroSection() {
     }
   }
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects")
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const downloadResume = () => {
+    const link = document.createElement("a")
+    link.href = "/tyler-fong-resume.pdf"
+    link.download = "Tyler_Fong_Resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <img
-              src="/friendly-developer-headshot.png"
+              src="/headshot.jpg"
               alt="Tyler Fong"
               className="w-48 h-48 rounded-full mx-auto mb-8 object-cover border-4 border-primary/20"
             />
@@ -38,26 +54,32 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="text-lg px-8">
+            <Button size="lg" className="text-lg px-8" onClick={scrollToProjects}>
               View My Projects
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+            <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent" onClick={downloadResume}>
               Download Resume
             </Button>
           </div>
 
           <div className="flex justify-center gap-6 mb-16">
-            <Button variant="ghost" size="sm" className="p-3">
-              <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
+            <Button variant="ghost" size="sm" className="p-3" asChild>
+              <a href="https://github.com/tfong08" target="_blank" rel="noopener noreferrer">
+                <Github className="h-6 w-6" />
+                <span className="sr-only">GitHub</span>
+              </a>
             </Button>
-            <Button variant="ghost" size="sm" className="p-3">
-              <Linkedin className="h-6 w-6" />
-              <span className="sr-only">LinkedIn</span>
+            <Button variant="ghost" size="sm" className="p-3" asChild>
+              <a href="https://linkedin.com/in/tyler-fong08" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-6 w-6" />
+                <span className="sr-only">LinkedIn</span>
+              </a>
             </Button>
-            <Button variant="ghost" size="sm" className="p-3">
-              <Mail className="h-6 w-6" />
-              <span className="sr-only">Email</span>
+            <Button variant="ghost" size="sm" className="p-3" asChild>
+              <a href="mailto:tyler.fong08@gmail.com">
+                <Mail className="h-6 w-6" />
+                <span className="sr-only">Email</span>
+              </a>
             </Button>
           </div>
 
