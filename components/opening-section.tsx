@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 
-export function HeroSection() {
+export function OpeningSection() {
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about")
     if (aboutSection) {
@@ -20,7 +20,7 @@ export function HeroSection() {
 
   const downloadResume = () => {
     const link = document.createElement("a")
-    link.href = "/tyler-fong-resume.pdf"
+    link.href = "/Tyler_Fong_resume.pdf"
     link.download = "Tyler_Fong_Resume.pdf"
     document.body.appendChild(link)
     link.click()
