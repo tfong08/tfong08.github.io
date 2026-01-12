@@ -5,6 +5,14 @@ import { ExternalLink, Lock } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
+      title: "Job Orchestrator",
+      description:
+        "Built a job orchestration service in Go with HTTP APIs for submitting, cancelling, and tracking asynchronous jobs that perform work on items across a full lifecycle, plus a concurrent scheduler-worker system backed by SQLite with item-level locking.",
+      technologies: ["Go", "SQLite", "REST API"],
+      repoUrl: "https://github.com/tfong08/job-orchestrator",
+      isPrivate: false,
+    },
+    {
       title: "Job Offer Tracker",
       description:
         "An Android application designed for tracking, storing, and comparing job offers with comprehensive functionality. The app features persistent storage for maintaining offer data, customizable comparison tools to evaluate different opportunities, and an intelligent job grading algorithm that helps assess offers based on multiple criteria.",
@@ -51,10 +59,19 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="flex-1 bg-transparent" disabled>
-                      <Lock className="h-3 w-3 mr-2" />
-                      Private Repo
-                    </Button>
+                    {project.isPrivate || !project.repoUrl ? (
+                      <Button size="sm" variant="outline" className="flex-1 bg-transparent" disabled>
+                        <Lock className="h-3 w-3 mr-2" />
+                        Private Repo
+                      </Button>
+                    ) : (
+                      <Button size="sm" variant="outline" className="flex-1 bg-transparent" asChild>
+                        <a href={project.repoUrl} target="_blank" rel="noreferrer">
+                          <ExternalLink className="h-3 w-3 mr-2" />
+                          View Repo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

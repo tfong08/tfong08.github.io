@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production"
+const repoName = ""
+
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
@@ -11,6 +14,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  basePath: isProd ? repoName : '',
+  assetPrefix: isProd ? `${repoName}/` : '',
 }
 
 export default nextConfig
